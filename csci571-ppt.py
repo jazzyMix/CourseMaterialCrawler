@@ -10,7 +10,7 @@ if not os.path.exists(newpath):
 USERNAME = 'csci571' # put correct usename here
 PASSWORD = 'notes1' # put correct password here
 url ="http://cs-server.usc.edu:45678/slides/"
-base64string = base64.encodestring('%s:%s' % ("csci571", "notes1")).replace('\n', '')
+base64string = base64.encodestring('%s:%s' % (USERNAME, PASSWORD)).replace('\n', '')
 r = requests.get(url, auth=(USERNAME, PASSWORD))
 soup = BeautifulSoup(r.text)
 pdf_link =soup.findAll(name='a',attrs={'href':re.compile("ppt$")})
