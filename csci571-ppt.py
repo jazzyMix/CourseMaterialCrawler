@@ -13,7 +13,7 @@ url ="http://cs-server.usc.edu:45678/slides/"
 base64string = base64.encodestring('%s:%s' % (USERNAME, PASSWORD)).replace('\n', '')
 r = requests.get(url, auth=(USERNAME, PASSWORD))
 soup = BeautifulSoup(r.text)
-pdf_link =soup.findAll(name='a',attrs={'href':re.compile("ppt$")})
+ppt_link =soup.findAll(name='a',attrs={'href':re.compile("ppt$")})
 for download_link in pdf_link:
     link = url+download_link["href"]
     print link
